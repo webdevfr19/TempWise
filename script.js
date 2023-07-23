@@ -7,6 +7,9 @@ const humidity = document.getElementById('humidity');
 const weatherRegion = document.getElementById('city_region');
 const weather = document.getElementById('weather');
 const windDirection = document.getElementById('weather_wind_dir');
+const region = document.getElementById('region');
+const cssLink = document.getElementById('myCssLink');
+const sun = document.getElementById('sun');
 
 const addPage = document.getElementById('addPage');
 
@@ -35,7 +38,7 @@ function getWeatherData(event) {
     const apiKey = '93344993f98a430a92123853232307'; // Replace with your actual OpenWeatherMap API key
     const city = document.getElementById('city').value;
 
-    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 //   http://api.weatherapi.com/v1/current.json?key=<YOUR_API_KEY>&q=London
 
     fetch(apiUrl)
@@ -79,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const apiKey = '93344993f98a430a92123853232307'; 
         const city = document.getElementById('city').value;
-        const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+        const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
         fetch(apiUrl)
             .then((response) => {
             if (!response.ok) {
@@ -95,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 weather.innerHTML = `Weather: ${data.current.condition.text}`;
                 windDirection.innerHTML = `Wind Direction: ${data.current.wind_dir}`;
                 humidity.innerHTML = `Humidity: ${data.current.humidity}`;
+                region.innerHTML =  `Region: ${data.location.region}`;
                 // switch case for bgcolor changing
                 // switch(data.current.temp_c){
                 //     case(data.current.temp_c >= 25):
@@ -107,6 +111,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 weatherTemperature.style.backgroundColor = '#EF7474';
             }else if(data.current.temp_c <= 25){
                 weatherTemperature.style.backgroundColor = '#7895CB';
+            }
+
+            const bodyPage = document.getElementById('bodyPage');
+
+            if(data.current.is_day != '1'){
+                bodyPage.classList.add('dark');
+                sun.classList.add('moon');
+            }else{
+                bodyPage.classList.remove('dark');
+                sun.classList.remove('moon');
             }
             })
             .catch((error) => {

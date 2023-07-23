@@ -15,7 +15,7 @@ html {
 }
 
 .snap {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
 }
 
 /* SNAP SCROLL */
@@ -24,6 +24,19 @@ body {
     margin: 0;
     padding: 0;
     background-image: url('BG_APP.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    transition: .5s ease-in-out;
+}
+
+.dark {
+    color: white;
+    margin: 0;
+    padding: 0;
+    background-image: url('BG_NIGHT_APP.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -59,6 +72,18 @@ img {
     box-shadow: 0 0 30px yellow;
 }
 
+.sun.moon {
+    width: 150px;
+    height: 150px;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 15%;
+    left:25%;
+    z-index: -2;
+    box-shadow: 0 0 30px yellow;
+}
+
 #cloud1 {
     top: 0;
     left: -15%;
@@ -73,7 +98,7 @@ img {
     left: 80%;
     width: 300px;
     height: 150px;
-    z-index: -1;
+    z-index: 1;
     animation: cloudAnimation2 var(--time) infinite ease-in-out;
 }
 
@@ -127,6 +152,9 @@ header {
 }
 
 header h1 {
+    border: 1.5px solid #7895CB;
+    border-radius: 30px;
+    padding: 3rem;
     font-size: 7rem;
     font-weight: 700;
     margin: 0 0;
@@ -146,6 +174,12 @@ header #weatherForm input {
     border-radius: 25px;
     font-size: 2rem;
     box-shadow: -10px 10px 0 #7895CB;
+    transition: .5s ease-in-out;
+}
+
+header #weatherForm input:focus {
+    width: 85rem;
+    box-shadow: -20px 20px 0 #7895CB;
 }
 
 header #weatherForm input::placeholder {
@@ -185,6 +219,14 @@ header span {
     box-shadow: -15px 15px 0 #4A55A2;
     font-size: 10rem;
     margin-bottom: 2rem;
+    transition: .5s ease-in-out;
+}
+
+.mainPage #weatherData .temp:hover {
+    width: 40rem;
+    height: 40rem;
+    font-size: 12rem;
+    box-shadow: -20px 20px 0 #4A55A2;
 }
 
 .mainPage #weatherData .place{
@@ -211,7 +253,7 @@ header span {
 }
 
 .mainPage #weatherData .temp.hidden {
-    animation: moveLeft 0.5s ease;
+    animation: moveRight 0.5s ease;
 }
 
 .addPage.visible {
@@ -264,6 +306,15 @@ header span {
 
 
 /* MEDIA QUERIES */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+    body {
+        justify-content: center;
+        align-items: center;
+    }
+}
 
 @media (max-width: 767px) {
 
@@ -275,7 +326,7 @@ header span {
     }
 
     .button {
-        margin: 1.5rem;
+        margin: 2rem;
         display: block;
         padding: 1.5rem;
         border: none;
@@ -298,12 +349,19 @@ header span {
 
     header #weatherForm input {
         text-align: center;
-        height: 3.5rem;
+        height: 5rem;
         width: 40rem;
         border: none;
         outline: none;
         border-radius: 25px;
+        box-shadow: -10px 10px 0 #7895CB;
         font-size: 2rem;
+        transition: .5s ease-in-out;
+    }
+
+    header #weatherForm input:focus {
+        width: 45rem;
+        box-shadow: -15px 15px 0 #7895CB;
     }
     
     header #weatherForm input::placeholder {
@@ -319,6 +377,7 @@ header span {
     }
 
     .mainPage #weatherData .temp {
+        margin: auto;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -329,7 +388,16 @@ header span {
         box-shadow: -15px 5px 0 #4A55A2;
         font-size: 10rem;
         margin-bottom: 2rem;
+        transition: .5s ease-in-out;
     }
+
+    .mainPage #weatherData .temp:hover {
+        width: 30rem;
+        height: 30rem;
+        font-size: 12rem;
+        box-shadow: -20px 20px 0 #4A55A2;
+    }
+    
     
     .mainPage #weatherData .place{
         font-size: 4rem;
@@ -354,6 +422,48 @@ header span {
         to {
             transform: translateY(0);
         }
+    }
+}
+
+@media (max-width: 520px) {
+    html {
+        font-size: 55%;
+    }
+
+    body {
+        overflow-x: hidden;
+        flex-direction: column;
+        padding: .3rem;
+    }
+}
+
+@media (max-width: 462px) {
+    html {
+        font-size: 50%;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 371px) {
+    html {
+        font-size: 30%;
+    }
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    #weatherForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 }
 
@@ -409,7 +519,7 @@ header span {
       transform: translateX(0);
     }
     to {
-        transform: translateX(100px0);
+        transform: translateX(100px);
     }
 }
 

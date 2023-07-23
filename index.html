@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Temp Wise</title>
-  <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp Wise</title>
+    <link id="myCssLink" rel="stylesheet" href="main.css">
 </head>
-<body>
+<body id="bodyPage">
     <!-- FLOATING IMAGES -->
     <div class="floating-img">
         <!-- HEADER -->
@@ -15,7 +18,7 @@
         <img src="cloud1.png" alt="cloud1" id="cloud4" style="--time: 30s;">
         <img src="cloud1.png" alt="cloud2" id="cloud5" style="--time: 30s;">
         <img src="cloud1.png" alt="cloud2" id="cloud6" style="--time: 30s;">
-        <div class="sun">
+        <div class="sun" id="sun">
             <div class="sunray"></div>
         </div>
     </div>
@@ -46,6 +49,7 @@
             <section class="addPage" id="addPage">
                 <h2>Additional Information</h2>
                 <div id="city_region" class="info">Region</div>
+                <div id="region">city region</div>
                 <div id="city_country" class="place info">Country</div>
                 <div id="weather" class="info">Weather</div>
                 <div id="weather_wind_dir" class="info">Wind Direction</div>
