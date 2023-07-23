@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temp Wise</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- FLOATING IMAGES -->
+    <div class="floating-img">
+        <!-- HEADER -->
+        <img src="cloud1.png" alt="cloud1" id="cloud1" style="--time: 30s;">
+        <img src="cloud1.png" alt="cloud2" id="cloud2" style="--time: 30s;">
+        <img src="cloud1.png" alt="cloud2" id="cloud3" style="--time: 30s;">
+        <!-- MAIN PAGE -->
+        <img src="cloud1.png" alt="cloud1" id="cloud4" style="--time: 30s;">
+        <img src="cloud1.png" alt="cloud2" id="cloud5" style="--time: 30s;">
+        <img src="cloud1.png" alt="cloud2" id="cloud6" style="--time: 30s;">
+        <div class="sun">
+            <div class="sunray"></div>
+        </div>
+    </div>
+
+    <div class="plug">
+        <p>By @webkurt</p>
+    </div>
+    <!-- INPUT PAGE -->
+
+    <div class="snap">
+        <header>
+            <h1>TEMP-WISE</h1>
+            <p>Know the <span>temperature</span> in your area in real-time.</p>
+            <form id="weatherForm">
+                <input type="text" id="city" placeholder="Enter your city" required>
+                <button type="submit" class="button">Get Weather</button>
+            </form>
+        </header>
+    </div>
+
+    <!-- TEMPERATURE VIEWING PAGE -->
+    <div class="snap">
+        <main class="mainPage">
+            <div id="weatherData">
+                <div id="city_temperature" class="temp" style="--color: #7895CB">0<span class="animate"></span></div>
+                <div id="city_weather" class="place">City</div>
+            </div>
+            <section class="addPage" id="addPage">
+                <h2>Additional Information</h2>
+                <div id="city_region" class="info">Region</div>
+                <div id="city_country" class="place info">Country</div>
+                <div id="weather" class="info">Weather</div>
+                <div id="weather_wind_dir" class="info">Wind Direction</div>
+                <div id="humidity" class="info">Humidity</div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

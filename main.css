@@ -1,0 +1,421 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat&family=Nunito:wght@300&family=Poppins&family=Roboto&family=Roboto+Condensed&display=swap');
+/* FONTS */
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* SNAP SCROLL */
+
+html {
+    font-size: 65%;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.snap {
+    scroll-snap-align: start;
+}
+
+/* SNAP SCROLL */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('BG_APP.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+img {
+    position: absolute;
+}
+
+/* show animation with js */
+
+/* .hidden {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+} */
+
+/* HEADER CLOUDS */
+
+.sun {
+    width: 150px;
+    height: 150px;
+    background-color: hsl(60, 79%, 66%);
+    border-radius: 50%;
+    position: absolute;
+    top: 15%;
+    left:25%;
+    z-index: -2;
+    box-shadow: 0 0 30px yellow;
+}
+
+#cloud1 {
+    top: 0;
+    left: -15%;
+    width: 350px;
+    height: 200px;
+    z-index: -1;
+    animation: cloudAnimation1 var(--time) infinite ease-in-out;
+}
+
+#cloud2 {
+    top: 60%;
+    left: 80%;
+    width: 300px;
+    height: 150px;
+    z-index: -1;
+    animation: cloudAnimation2 var(--time) infinite ease-in-out;
+}
+
+#cloud3 {
+    top: 30%;
+    left: 100%;
+    width: 400px;
+    height: 200px;
+    z-index: -1;
+    animation: cloudAnimation2 var(--time) infinite ease-in-out;
+}
+
+/* MAIN CLOUDS */
+
+#cloud4 {
+    top: 100%;
+    left: -15%;
+    width: 300px;
+    height: 150px;
+    z-index: -1;
+    animation: cloudAnimation1 var(--time) infinite ease-in-out;
+}
+
+#cloud5 {
+    top: 130%;
+    left: 80%;
+    width: 300px;
+    height: 150px;
+    z-index: 1;
+    animation: cloudAnimation2 var(--time) infinite ease-in-out;
+}
+
+#cloud6 {
+    top: 180%;
+    left: 100%;
+    width: 300px;
+    height: 150px;
+    z-index: -1;
+    animation: cloudAnimation2 var(--time) infinite ease-in-out;
+}
+
+
+/* HEADER STYLES */
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header h1 {
+    font-size: 7rem;
+    font-weight: 700;
+    margin: 0 0;
+}
+
+header p {
+    margin: 10px 0;
+    font-size: 2rem;
+}
+
+header #weatherForm input {
+    text-align: center;
+    height: 6rem;
+    width: 80rem;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    font-size: 2rem;
+    box-shadow: -10px 10px 0 #7895CB;
+}
+
+header #weatherForm input::placeholder {
+    opacity: .5;
+    text-align: center;
+    font-size: 2rem;
+}
+
+header span {
+    color: #4A55A2;
+    font-weight: 700;
+}
+
+.button {
+    display: none;
+}
+
+/* MAIN PAGE */
+
+.mainPage {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mainPage #weatherData .temp {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color);
+    border-radius: 50%;
+    width: 35rem;
+    height: 35rem;
+    box-shadow: -15px 15px 0 #4A55A2;
+    font-size: 10rem;
+    margin-bottom: 2rem;
+}
+
+.mainPage #weatherData .place{
+    font-size: 4rem;
+    margin-top: 1.5rem;
+}
+
+.mainPage #weatherData .temp {
+    position: relative;
+    color: white;
+    font-weight: 800;
+    transition: .5s ease-in-out;
+}
+
+.mainPage .addPage{
+    display: none;
+    text-align: left;
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+.mainPage #weatherData .temp.visible {
+    animation: moveLeft 0.5s ease;
+}
+
+.mainPage #weatherData .temp.hidden {
+    animation: moveLeft 0.5s ease;
+}
+
+.addPage.visible {
+    display: block;
+    animation: fadeIn 2s ease;
+}
+
+.info,
+.place.info {
+    font-weight: 500;
+}
+
+/* PLUG STYLES LOL */
+
+.plug {
+    position: absolute;
+    top: 195vh;
+    left: 50px;
+}
+
+/* .mainPage #weatherData .temp::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: -1;
+    right: 0;
+    bottom: -2;
+    width: 125%;
+    height: 125%;
+    background-color: #C5DFF8;
+    transition: .5s ease-in-out;
+}
+
+.mainPage #weatherData .temp:hover::before {
+    width: 0;
+} */
+
+
+
+
+/* Cloud animations */
+
+/* #cloud1 {
+    transform: translateX(300%);
+}
+
+#cloud2 {
+    transform: translateX(-300%);
+} */
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 767px) {
+
+    #weatherForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .button {
+        margin: 1.5rem;
+        display: block;
+        padding: 1.5rem;
+        border: none;
+        background-color: #4A55A2;
+        color: white;
+        border-radius: 10px;
+    }
+
+    header h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin: 0 0;
+    }
+
+    header p {
+        margin: 10px 0;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    header #weatherForm input {
+        text-align: center;
+        height: 3.5rem;
+        width: 40rem;
+        border: none;
+        outline: none;
+        border-radius: 25px;
+        font-size: 2rem;
+    }
+    
+    header #weatherForm input::placeholder {
+        opacity: .5;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    /* main page media query */
+
+    .mainPage {
+        flex-direction: column;
+    }
+
+    .mainPage #weatherData .temp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #7895CB;
+        border-radius: 50%;
+        width: 25rem;
+        height: 25rem;
+        box-shadow: -15px 5px 0 #4A55A2;
+        font-size: 10rem;
+        margin-bottom: 2rem;
+    }
+    
+    .mainPage #weatherData .place{
+        font-size: 4rem;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .mainPage .addPage {
+        text-align: center;
+    }
+
+    .mainPage #weatherData .temp.visible {
+        animation: moveUp 0.5s ease;
+    }
+    
+    /* mobile animations */
+
+    @keyframes moveUp {
+        from {
+            transform: translateY(100px);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+}
+
+/* keyframes */
+
+@keyframes cloudAnimation1 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(500%);
+    }
+}
+
+@keyframes cloudAnimation2 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-500%);
+    }
+}
+
+@keyframes cloudAnimation3 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(500%);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+@keyframes moveLeft {
+    from {
+      transform: translateX(100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+        transform: translateX(100px0);
+    }
+}
+
+
+
+
+
+  
+  
