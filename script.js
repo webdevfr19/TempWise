@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const apiKey = '93344993f98a430a92123853232307'; 
         const city = document.getElementById('city').value;
-        const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+        const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
         fetch(apiUrl)
             .then((response) => {
             if (!response.ok) {
