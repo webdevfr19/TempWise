@@ -35,7 +35,7 @@ function getWeatherData(event) {
     const apiKey = '93344993f98a430a92123853232307'; // Replace with your actual OpenWeatherMap API key
     const city = document.getElementById('city').value;
 
-    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 //   http://api.weatherapi.com/v1/current.json?key=<YOUR_API_KEY>&q=London
 
     fetch(apiUrl)
