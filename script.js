@@ -7,6 +7,7 @@ const humidity = document.getElementById('humidity');
 const weatherRegion = document.getElementById('city_region');
 const weather = document.getElementById('weather');
 const windDirection = document.getElementById('weather_wind_dir');
+const region = document.getElementById('region');
 
 const addPage = document.getElementById('addPage');
 
@@ -95,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 weather.innerHTML = `Weather: ${data.current.condition.text}`;
                 windDirection.innerHTML = `Wind Direction: ${data.current.wind_dir}`;
                 humidity.innerHTML = `Humidity: ${data.current.humidity}`;
+                region.innerHTML =  `Region: ${data.location.region}`;
                 // switch case for bgcolor changing
                 // switch(data.current.temp_c){
                 //     case(data.current.temp_c >= 25):
