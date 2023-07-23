@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 //     case(data.current.temp_c <= 25):
                 //         weatherTemperature.style.backgroundColor = '#7895CB';
                 // }
-
+                console.log(data.location.name);
             if(data.current.temp_c >= 25){
                 weatherTemperature.style.backgroundColor = '#EF7474';
             }else if(data.current.temp_c <= 25){
