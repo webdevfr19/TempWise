@@ -52,6 +52,11 @@ function getWeatherData(event) {
             weatherCity.innerHTML = data.location.name;
             weatherTemperature.innerHTML = data.current.temp_c;
             weatherCountry.innerHTML = data.location.country;
+            weatherRegion.innerHTML = `Continent: ${data.location.tz_id}`;
+            weather.innerHTML = `Weather: ${data.current.condition.text}`;
+            windDirection.innerHTML = `Wind Direction: ${data.current.wind_dir}`;
+            humidity.innerHTML = `Humidity: ${data.current.humidity}`;
+            region.innerHTML =  `Region: ${data.location.region}`;
             // switch case for bgcolor changing
             // switch(data.current.temp_c){
             //     case(data.current.temp_c >= 25):
@@ -65,6 +70,15 @@ function getWeatherData(event) {
                 weatherTemperature.style.backgroundColor = '#EF7474';
             }else if(data.current.temp_c <= 25){
                 weatherTemperature.style.backgroundColor = '#7895CB';
+            }
+            const bodyPage = document.getElementById('bodyPage');
+
+            if(data.current.is_day != '1'){
+                bodyPage.classList.add('dark');
+                sun.classList.add('moon');
+            }else{
+                bodyPage.classList.remove('dark');
+                sun.classList.remove('moon');
             }
         })
         .catch((error) => {
