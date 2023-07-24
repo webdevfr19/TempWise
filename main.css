@@ -314,11 +314,6 @@ header span {
     html {
         font-size: 60%;
     }
-    
-    .cloud {
-        display: none;
-    }
-    
     body {
         justify-content: center;
         align-items: center;
