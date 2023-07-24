@@ -3,20 +3,24 @@
 /* FONTS */
 
 * {
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* SNAP SCROLL */
 
 html {
-    font-size: 65%;
-    scroll-snap-type: y mandatory;
+    font-size: 80%;
+    scroll-snap-type: none;
     scroll-behavior: smooth;
 }
 
-.snap {
+/* i think its much better to comment this out lol */
+/* .snap {
     scroll-snap-align: center;
-}
+} */
 
 /* SNAP SCROLL */
 
@@ -308,7 +312,7 @@ header span {
 /* MEDIA QUERIES */
 @media (max-width: 1200px) {
     html {
-        font-size: 55%;
+        font-size: 60%;
     }
     body {
         justify-content: center;
@@ -317,6 +321,15 @@ header span {
 }
 
 @media (max-width: 767px) {
+
+    html {
+        scroll-snap-type: none;
+        scroll-behavior: smooth;
+    }
+
+    .cloud {
+        display: none;
+    }
 
     #weatherForm {
         display: flex;
@@ -354,8 +367,7 @@ header span {
         border: none;
         outline: none;
         border-radius: 25px;
-        box-shadow: -10px 10px 0 #7895CB;
-        font-size: 2rem;
+        box-shadow: -15px 15px 0 #7895CB;
         transition: .5s ease-in-out;
     }
 
@@ -367,7 +379,6 @@ header span {
     header #weatherForm input::placeholder {
         opacity: .5;
         text-align: center;
-        font-size: 2rem;
     }
 
     /* main page media query */
@@ -377,6 +388,7 @@ header span {
     }
 
     .mainPage #weatherData .temp {
+        font-size: 10rem;
         margin: auto;
         display: flex;
         align-items: center;
@@ -386,7 +398,6 @@ header span {
         width: 25rem;
         height: 25rem;
         box-shadow: -15px 5px 0 #4A55A2;
-        font-size: 10rem;
         margin-bottom: 2rem;
         transition: .5s ease-in-out;
     }
@@ -394,13 +405,11 @@ header span {
     .mainPage #weatherData .temp:hover {
         width: 30rem;
         height: 30rem;
-        font-size: 12rem;
         box-shadow: -20px 20px 0 #4A55A2;
     }
     
     
     .mainPage #weatherData .place{
-        font-size: 4rem;
         text-align: center;
         margin-top: 1.5rem;
     }
@@ -423,25 +432,53 @@ header span {
             transform: translateY(0);
         }
     }
+    @keyframes cloudAnimation1 {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(20%);
+        }
+    }
+    
+    @keyframes cloudAnimation2 {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(-20%);
+        }
+    }
+    
+    @keyframes cloudAnimation3 {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(20%);
+        }
+    }
 }
 
 @media (max-width: 520px) {
-    html {
-        font-size: 55%;
-    }
-
     body {
         overflow-x: hidden;
         flex-direction: column;
         padding: .3rem;
     }
-}
-
-@media (max-width: 462px) {
-    html {
-        font-size: 50%;
+    .mainPage #weatherData .temp {
+        width: 20rem;
+        height: 20rem;
     }
 
+    .mainPage #weatherData .temp:hover {
+        width: 25rem;
+        height: 25rem;
+    }
+}
+
+
+@media (max-width: 414px) {
     body {
         display: flex;
         justify-content: center;
@@ -450,10 +487,6 @@ header span {
 }
 
 @media (max-width: 371px) {
-    html {
-        font-size: 30%;
-    }
-
     body {
         width: 100%;
         overflow-x: hidden;
